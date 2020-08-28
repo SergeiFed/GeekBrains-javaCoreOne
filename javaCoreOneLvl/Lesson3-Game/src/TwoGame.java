@@ -16,7 +16,8 @@ public class TwoGame {
             StringBuilder playerText = new StringBuilder(scanner.nextLine());
             StringBuilder slash = new StringBuilder("###############");
 
-            if (playerText.equals(randomBuilder)) {
+            boolean a = randomBuilder.toString().equals(playerText.toString());
+            if (a) {
                 System.out.println("Поздравляю вы угадали");
                 break;
             } else {
