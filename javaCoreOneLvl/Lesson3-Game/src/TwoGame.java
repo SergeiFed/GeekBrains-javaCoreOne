@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,6 +15,8 @@ public class TwoGame {
         System.out.println(randomBuilder);
         while (true) {
             StringBuilder playerText = new StringBuilder(scanner.nextLine());
+            
+
             StringBuilder slash = new StringBuilder("###############");
 
             boolean a = randomBuilder.toString().equals(playerText.toString());
@@ -24,6 +27,9 @@ public class TwoGame {
                 for (int i = 0; i < playerText.length(); i++) {
                     if (playerText.charAt(i) == randomBuilder.charAt(i)) {
                         slash.setCharAt(i, playerText.charAt(i));
+                    }
+                    else {
+                        break;
                     }
                 }
                 System.out.println("Попробуйте еще раз вы угадали вот эти символы");
