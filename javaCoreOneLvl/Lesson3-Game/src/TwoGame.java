@@ -12,12 +12,15 @@ public class TwoGame {
     public static void main(String[] args) {
 
         StringBuilder randomBuilder = new StringBuilder(words[random.nextInt(words.length)]);
-        System.out.println(randomBuilder);
+        System.out.println("Угадай какое слово загадал компьютер");
         while (true) {
-            StringBuilder playerText = new StringBuilder(scanner.nextLine());
-            
+            String playerText1 = new String(scanner.nextLine());
+            String string = playerText1.toLowerCase();
+            StringBuilder playerText = new StringBuilder(string);
+
 
             StringBuilder slash = new StringBuilder("###############");
+
 
             boolean a = randomBuilder.toString().equals(playerText.toString());
             if (a) {
@@ -27,9 +30,6 @@ public class TwoGame {
                 for (int i = 0; i < playerText.length(); i++) {
                     if (playerText.charAt(i) == randomBuilder.charAt(i)) {
                         slash.setCharAt(i, playerText.charAt(i));
-                    }
-                    else {
-                        break;
                     }
                 }
                 System.out.println("Попробуйте еще раз вы угадали вот эти символы");
