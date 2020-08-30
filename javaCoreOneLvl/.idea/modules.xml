@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lesson3-Game/Lesson3-Game.iml" filepath="$PROJECT_DIR$/Lesson3-Game/Lesson3-Game.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaCoreOneLvl.iml" filepath="$PROJECT_DIR$/javaCoreOneLvl.iml" />
       <module fileurl="file://$PROJECT_DIR$/lesson1/lesson1.iml" filepath="$PROJECT_DIR$/lesson1/lesson1.iml" />
       <module fileurl="file://$PROJECT_DIR$/lesson2/lesson2.iml" filepath="$PROJECT_DIR$/lesson2/lesson2.iml" />
