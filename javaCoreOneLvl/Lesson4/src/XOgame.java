@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class XOgame {
     static final int SIZE = 3;
-//    static final int DOT_TO_WIN = 3;
+    static final int DOT_TO_WIN = 3;
 
     static final char DOT_X = 'X';
     static final char DOT_O = 'O';
@@ -21,7 +21,7 @@ public class XOgame {
         while (true) {
             humanTurn();
             printMap();
-            if(checkWin(DOT_X)){
+            if (checkWin(DOT_X)) {
                 System.out.println("Вы победили! Поздравляем!");
                 break;
             }
@@ -32,7 +32,7 @@ public class XOgame {
 
             aiTurn();
             printMap();
-            if(checkWin(DOT_O)){
+            if (checkWin(DOT_O)) {
                 System.out.println("Компьютер победил.");
                 break;
             }
@@ -117,16 +117,55 @@ public class XOgame {
     }
 
     public static boolean checkWin(char c) {
-        if (map[0][0] == c && map[0][1] == c && map[0][2] == c) {return true; }
-        if (map[1][0] == c && map[1][1] == c && map[1][2] == c) {return true; }
-        if (map[2][0] == c && map[2][1] == c && map[2][2] == c) {return true; }
+        int count = 0;
+        for (int y = 0; y < map.length; y++) {
+            for (int x = 0; x < map[y].length; x++) {
+                if (map[y][x] == DOT_EMPTY) {
+                    break;
+                } else {
+                    for (int i = 0; i < DOT_TO_WIN; i++) {
+                        if ((map[x][y] == c) && ((y + i) < SIZE) && (map[x][y + i] == c)) {
+                            count++;
+                        }
+                        if (count == DOT_TO_WIN) {
+                            return true;
+                        }
+                    }
+                    count = 0;
+                    for (int i = 0; i < DOT_TO_WIN; i++) {
+                        if ((map[y][x] == c) && ((y + i) < SIZE) &&
+                                ((map[y + i][x]) == c)) {
+                            count++;
+                        }
+                        if (count == DOT_TO_WIN) {
+                            return true;
+                        }
+                    }
+                    count = 0;
+                    for (int i = 0; i < DOT_TO_WIN; i++) {
+                        if ((map[x][y] == c) && ((y + i) < SIZE) && ((x + i) < SIZE) &&
+                                (map[x + i][y + i] == c)) {
+                            count++;
+                        }
+                        if (count == DOT_TO_WIN) {
+                            return true;
+                        }
+                    }
+                    count = 0;
+                    for (int i = 0; i < DOT_TO_WIN; i++ ) {
+                        if ((map[x][y] == c) && ((x - i) >= 0) && ((y + i) < SIZE) && (map[x - i][y + i] == c)) {
+                            count++;
+                        }
+                        if (count == DOT_TO_WIN ) {
+                            return true;
+                        }
+                    }
+                    count = 0;
+                }
 
-        if (map[0][0] == c && map[1][0] == c && map[2][0] == c) {return true; }
-        if (map[0][1] == c && map[1][1] == c && map[2][1] == c) {return true; }
-        if (map[0][2] == c && map[1][2] == c && map[2][2] == c) {return true; }
+            }
 
-        if (map[0][0] == c && map[1][1] == c && map[2][2] == c) {return true; }
-        if (map[0][2] == c && map[1][1] == c && map[2][0] == c) {return true; }
+        }
 
         return false;
     }
