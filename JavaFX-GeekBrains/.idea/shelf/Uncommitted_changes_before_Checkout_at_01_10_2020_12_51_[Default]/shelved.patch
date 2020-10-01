@@ -1,0 +1,16 @@
+Index: ../untitled1/src/sample/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../untitled1/src/sample/Main.java	(revision bd1aaa948c50b3db94e88427a9d495621a0082aa)
++++ ../untitled1/src/sample/Main.java	(date 1601544891906)
+@@ -12,7 +12,7 @@
+     public void start(Stage primaryStage) throws Exception{
+         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+         primaryStage.setTitle("Hello World");
+-        primaryStage.setScene(new Scene(root, 300, 275));
++        primaryStage.setScene(new Scene(root, 700, 500));
+         primaryStage.show();
+     }
+ 

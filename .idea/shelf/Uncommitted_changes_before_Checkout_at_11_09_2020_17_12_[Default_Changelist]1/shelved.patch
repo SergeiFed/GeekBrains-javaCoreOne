@@ -1,0 +1,316 @@
+Index: javaCoreOneLvl/Lesson6/src/Animal/Dog.java
+===================================================================
+--- javaCoreOneLvl/Lesson6/src/Animal/Dog.java	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
++++ javaCoreOneLvl/Lesson6/src/Animal/Dog.java	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
+@@ -1,38 +0,0 @@
+-package Animal;
+-
+-public class Dog extends Animal {
+-    private int runDog = 0;
+-    private int swimDog = 0;
+-    private static int countDog;
+-
+-    public static int getCountDog() {
+-        return countDog;
+-    }
+-
+-    public Dog(String name) {
+-        super(name);
+-        countDog++;
+-    }
+-
+-    @Override
+-    public void run(int length) {
+-        if (length > 0 && length <= 500) {
+-            runDog += length;
+-            System.out.println(Dog.this.getName() + " пробежал " + length + "м\n"
+-                    + "Всего он пробежал " + runDog + "м");
+-        } else {
+-            System.out.println(Dog.this.getName() + " пробежать может только 500м");
+-        }
+-    }
+-
+-    @Override
+-    public void swim(int length) {
+-        if (length > 0 && length <= 10) {
+-            runDog += length;
+-            System.out.println(Dog.this.getName() + " проплыл " + length + "м\n"
+-                    + "Всего он проплыл " + swimDog + "м");
+-        } else {
+-            System.out.println(Dog.this.getName() + " проплыть может только 10м");
+-        }
+-    }
+-}
+Index: javaCoreOneLvl/Lesson6/src/Main.java
+===================================================================
+--- javaCoreOneLvl/Lesson6/src/Main.java	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
++++ javaCoreOneLvl/Lesson6/src/Main.java	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
+@@ -1,28 +0,0 @@
+-import Animal.*;
+-
+-public class Main {
+-
+-
+-    public static void main(String[] args) {
+-        Animal cat = new Cat("Symon");
+-        Animal cat1 = new Cat("Symon");
+-        Animal cat2 = new Cat("Symon");
+-        Animal cat3 = new Cat("Symon");
+-        Animal dog2 = new Dog("Jane");
+-        Animal dog3 = new Dog("Jane");
+-        Animal dog4 = new Dog("Jane");
+-        Animal dog5 = new Dog("Jane");
+-        Animal dog6 = new Dog("Jane");
+-
+-        cat.swim(200);
+-        cat.run(100);
+-        cat.run(100);
+-
+-        System.out.println("Всего кошек " + Cat.getCountCat());
+-        System.out.println("Всего собак " + Dog.getCountDog());
+-        System.out.println("Всего животных " + Animal.getCountAll());
+-
+-    }
+-
+-
+-}
+Index: javaCoreOneLvl/Lesson6/src/Animal/Animal.java
+===================================================================
+--- javaCoreOneLvl/Lesson6/src/Animal/Animal.java	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
++++ javaCoreOneLvl/Lesson6/src/Animal/Animal.java	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
+@@ -1,28 +0,0 @@
+-package Animal;
+-
+-public abstract class Animal {
+-    protected final String name;
+-
+-
+-    private static int countAll;
+-
+-
+-
+-    public Animal(String name) {
+-        this.name = name;
+-        countAll++;
+-    }
+-
+-
+-    public static int getCountAll() {
+-        return countAll;
+-    }
+-
+-    public String getName() {
+-        return name;
+-    }
+-
+-    public abstract void swim(int length);
+-
+-    public abstract void run(int length);
+-}
+Index: javaCoreOneLvl/Lesson6/src/Animal/Cat.java
+===================================================================
+--- javaCoreOneLvl/Lesson6/src/Animal/Cat.java	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
++++ javaCoreOneLvl/Lesson6/src/Animal/Cat.java	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
+@@ -1,33 +0,0 @@
+-package Animal;
+-
+-public class Cat extends Animal {
+-    private static int countCat;
+-    private int runCat = 0;
+-
+-
+-
+-    public static int getCountCat() {
+-        return countCat;
+-    }
+-
+-    public Cat(String name) {
+-        super(name);
+-        countCat++;
+-    }
+-
+-    @Override
+-    public void swim(int length) {
+-        System.out.println(Cat.this.getName() + "не умеет плавать");
+-    }
+-
+-    @Override
+-    public void run(int length) {
+-        if (length > 0 && length <= 200) {
+-            runCat += length;
+-            System.out.println(Cat.this.getName() + " пробежал " + length + "м\n" + "Всего он пробежал " + runCat + "м");
+-        } else {
+-            System.out.println(Cat.this.getName() + " пробежать может только 200м");
+-        }
+-    }
+-
+-}
+Index: javaCoreOneLvl/Lesson6/Lesson6.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+===================================================================
+--- javaCoreOneLvl/Lesson6/Lesson6.iml	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
++++ javaCoreOneLvl/Lesson5/Lesson5.iml	(date 1599148824999)
+@@ -5,7 +5,7 @@
+     <content url="file://$MODULE_DIR$">
+       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+     </content>
+-    <orderEntry type="inheritedJdk" />
++    <orderEntry type="jdk" jdkName="14" jdkType="JavaSDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: javaCoreOneLvl/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/Lesson3-Game/Lesson3-Game.iml\" filepath=\"$PROJECT_DIR$/Lesson3-Game/Lesson3-Game.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/javaCoreOneLvl.iml\" filepath=\"$PROJECT_DIR$/javaCoreOneLvl.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/lesson1/lesson1.iml\" filepath=\"$PROJECT_DIR$/lesson1/lesson1.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/lesson2/lesson2.iml\" filepath=\"$PROJECT_DIR$/lesson2/lesson2.iml\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- javaCoreOneLvl/.idea/modules.xml	(revision e38dc75ba2448f979b7f0b5e1c34276a877ef39a)
++++ javaCoreOneLvl/.idea/modules.xml	(date 1599402749149)
+@@ -3,6 +3,9 @@
+   <component name="ProjectModuleManager">
+     <modules>
+       <module fileurl="file://$PROJECT_DIR$/Lesson3-Game/Lesson3-Game.iml" filepath="$PROJECT_DIR$/Lesson3-Game/Lesson3-Game.iml" />
++      <module fileurl="file://$PROJECT_DIR$/Lesson4/Lesson4.iml" filepath="$PROJECT_DIR$/Lesson4/Lesson4.iml" />
++      <module fileurl="file://$PROJECT_DIR$/Lesson5/Lesson5.iml" filepath="$PROJECT_DIR$/Lesson5/Lesson5.iml" />
++      <module fileurl="file://$PROJECT_DIR$/Lesson6/Lesson6.iml" filepath="$PROJECT_DIR$/Lesson6/Lesson6.iml" />
+       <module fileurl="file://$PROJECT_DIR$/javaCoreOneLvl.iml" filepath="$PROJECT_DIR$/javaCoreOneLvl.iml" />
+       <module fileurl="file://$PROJECT_DIR$/lesson1/lesson1.iml" filepath="$PROJECT_DIR$/lesson1/lesson1.iml" />
+       <module fileurl="file://$PROJECT_DIR$/lesson2/lesson2.iml" filepath="$PROJECT_DIR$/lesson2/lesson2.iml" />
+Index: javaCoreOneLvl/.idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- javaCoreOneLvl/.idea/uiDesigner.xml	(date 1598786793971)
++++ javaCoreOneLvl/.idea/uiDesigner.xml	(date 1598786793971)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.png" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
